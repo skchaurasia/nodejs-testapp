@@ -14,7 +14,7 @@ pipeline {
   stage('Publish image to Docker Hub') {
           
             steps {
-        withDockerRegistry([ credentialsId: "dockerHub", url: "skcnetworknutsnodejstestrepo" ]) {
+        withDockerRegistry([ credentialsId: "dockerHub", url: "skcnetworknuts/nodejstestrepo" ]) {
           sh  'docker push skcnetworknutsnodejstestrepo/nginxtest:latest'
           sh  'docker push skcnetworknutsnodejstestrepo/nginxtest:$BUILD_NUMBER' 
         }
