@@ -1,5 +1,5 @@
 pipeline {
-    agent linuxslave1
+    agent any
  stages {
   stage('Docker Build and Tag') {
            steps {
