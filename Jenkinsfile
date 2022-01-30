@@ -15,8 +15,8 @@ pipeline {
           
             steps {
         withDockerRegistry([ credentialsId: "dockerHub", url: "skcnetworknuts/nodejstestrepo" ]) {
-          sh  'docker push skcnetworknutsnodejstestrepo/nginxtest:latest'
-          sh  'docker push skcnetworknutsnodejstestrepo/nginxtest:$BUILD_NUMBER' 
+          sh  'docker push skcnetworknuts/nodejstestrepo/nginxtest:latest'
+          sh  'docker push skcnetworknuts/nodejstestrepo/nginxtest:$BUILD_NUMBER' 
         }
                   
           }
@@ -25,7 +25,7 @@ pipeline {
       stage('Run Docker container on Jenkins Agent') {
              
             steps {
-                sh "docker run -d -p 4030:80 skcnetworknutsnodejstestrepo/nginxtest"
+                sh "docker run -d -p 4030:80 skcnetworknuts/nodejstestrepo/nginxtest"
  
             }
         }
